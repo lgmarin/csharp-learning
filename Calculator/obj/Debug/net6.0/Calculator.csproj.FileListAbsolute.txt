@@ -1,0 +1,15 @@
+/mnt/data/Documents/Projects/baltaIO/Calculator/bin/Debug/net6.0/Calculator
+/mnt/data/Documents/Projects/baltaIO/Calculator/bin/Debug/net6.0/Calculator.deps.json
+/mnt/data/Documents/Projects/baltaIO/Calculator/bin/Debug/net6.0/Calculator.runtimeconfig.json
+/mnt/data/Documents/Projects/baltaIO/Calculator/bin/Debug/net6.0/Calculator.dll
+/mnt/data/Documents/Projects/baltaIO/Calculator/bin/Debug/net6.0/ref/Calculator.dll
+/mnt/data/Documents/Projects/baltaIO/Calculator/bin/Debug/net6.0/Calculator.pdb
+/mnt/data/Documents/Projects/baltaIO/Calculator/obj/Debug/net6.0/Calculator.csproj.AssemblyReference.cache
+/mnt/data/Documents/Projects/baltaIO/Calculator/obj/Debug/net6.0/Calculator.GeneratedMSBuildEditorConfig.editorconfig
+/mnt/data/Documents/Projects/baltaIO/Calculator/obj/Debug/net6.0/Calculator.AssemblyInfoInputs.cache
+/mnt/data/Documents/Projects/baltaIO/Calculator/obj/Debug/net6.0/Calculator.AssemblyInfo.cs
+/mnt/data/Documents/Projects/baltaIO/Calculator/obj/Debug/net6.0/Calculator.csproj.CoreCompileInputs.cache
+/mnt/data/Documents/Projects/baltaIO/Calculator/obj/Debug/net6.0/Calculator.dll
+/mnt/data/Documents/Projects/baltaIO/Calculator/obj/Debug/net6.0/ref/Calculator.dll
+/mnt/data/Documents/Projects/baltaIO/Calculator/obj/Debug/net6.0/Calculator.pdb
+/mnt/data/Documents/Projects/baltaIO/Calculator/obj/Debug/net6.0/Calculator.genruntimeconfig.cache
