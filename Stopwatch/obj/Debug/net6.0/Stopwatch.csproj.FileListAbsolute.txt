@@ -1,0 +1,15 @@
+/home/luizm/Documentos/Projects/csharp-learning/Stopwatch/bin/Debug/net6.0/Stopwatch
+/home/luizm/Documentos/Projects/csharp-learning/Stopwatch/bin/Debug/net6.0/Stopwatch.deps.json
+/home/luizm/Documentos/Projects/csharp-learning/Stopwatch/bin/Debug/net6.0/Stopwatch.runtimeconfig.json
+/home/luizm/Documentos/Projects/csharp-learning/Stopwatch/bin/Debug/net6.0/Stopwatch.dll
+/home/luizm/Documentos/Projects/csharp-learning/Stopwatch/bin/Debug/net6.0/ref/Stopwatch.dll
+/home/luizm/Documentos/Projects/csharp-learning/Stopwatch/bin/Debug/net6.0/Stopwatch.pdb
+/home/luizm/Documentos/Projects/csharp-learning/Stopwatch/obj/Debug/net6.0/Stopwatch.csproj.AssemblyReference.cache
+/home/luizm/Documentos/Projects/csharp-learning/Stopwatch/obj/Debug/net6.0/Stopwatch.GeneratedMSBuildEditorConfig.editorconfig
+/home/luizm/Documentos/Projects/csharp-learning/Stopwatch/obj/Debug/net6.0/Stopwatch.AssemblyInfoInputs.cache
+/home/luizm/Documentos/Projects/csharp-learning/Stopwatch/obj/Debug/net6.0/Stopwatch.AssemblyInfo.cs
+/home/luizm/Documentos/Projects/csharp-learning/Stopwatch/obj/Debug/net6.0/Stopwatch.csproj.CoreCompileInputs.cache
+/home/luizm/Documentos/Projects/csharp-learning/Stopwatch/obj/Debug/net6.0/Stopwatch.dll
+/home/luizm/Documentos/Projects/csharp-learning/Stopwatch/obj/Debug/net6.0/ref/Stopwatch.dll
+/home/luizm/Documentos/Projects/csharp-learning/Stopwatch/obj/Debug/net6.0/Stopwatch.pdb
+/home/luizm/Documentos/Projects/csharp-learning/Stopwatch/obj/Debug/net6.0/Stopwatch.genruntimeconfig.cache

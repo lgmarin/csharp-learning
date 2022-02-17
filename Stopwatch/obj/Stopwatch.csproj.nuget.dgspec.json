@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/mnt/data/Documents/Projects/baltaIO/Stopwatch/Stopwatch.csproj": {}
+    "/home/luizm/Documentos/Projects/csharp-learning/Stopwatch/Stopwatch.csproj": {}
   },
   "projects": {
-    "/mnt/data/Documents/Projects/baltaIO/Stopwatch/Stopwatch.csproj": {
+    "/home/luizm/Documentos/Projects/csharp-learning/Stopwatch/Stopwatch.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/mnt/data/Documents/Projects/baltaIO/Stopwatch/Stopwatch.csproj",
+        "projectUniqueName": "/home/luizm/Documentos/Projects/csharp-learning/Stopwatch/Stopwatch.csproj",
         "projectName": "Stopwatch",
-        "projectPath": "/mnt/data/Documents/Projects/baltaIO/Stopwatch/Stopwatch.csproj",
-        "packagesPath": "/home/luiz/.nuget/packages/",
-        "outputPath": "/mnt/data/Documents/Projects/baltaIO/Stopwatch/obj/",
+        "projectPath": "/home/luizm/Documentos/Projects/csharp-learning/Stopwatch/Stopwatch.csproj",
+        "packagesPath": "/home/luizm/.nuget/packages/",
+        "outputPath": "/home/luizm/Documentos/Projects/csharp-learning/Stopwatch/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/luiz/.nuget/NuGet/NuGet.Config"
+          "/home/luizm/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"

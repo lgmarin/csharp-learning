@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "llGoETeN9AnkIiEx1Nvh3TUaeriYn6XaJYzSc3BdbXfmeRlLkRbWS+baI2IKGmD6TLid1IAJBY/Ewn43PlksSg==",
+  "dgSpecHash": "CiKCf3cYgrJBY002gtswBqAys98XdJ/Q/1Ch1iSfWMOGPeajBgn3+X0AUlsLKh9EQw59JVAP2iW6Js6KNrlbHA==",
   "success": true,
-  "projectFilePath": "/mnt/data/Documents/Projects/baltaIO/Stopwatch/Stopwatch.csproj",
+  "projectFilePath": "/home/luizm/Documentos/Projects/csharp-learning/Stopwatch/Stopwatch.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
