@@ -1,0 +1,15 @@
+/mnt/data/Documents/Projects/baltaIO/TextEditor/bin/Debug/net6.0/TextEditor
+/mnt/data/Documents/Projects/baltaIO/TextEditor/bin/Debug/net6.0/TextEditor.deps.json
+/mnt/data/Documents/Projects/baltaIO/TextEditor/bin/Debug/net6.0/TextEditor.runtimeconfig.json
+/mnt/data/Documents/Projects/baltaIO/TextEditor/bin/Debug/net6.0/TextEditor.dll
+/mnt/data/Documents/Projects/baltaIO/TextEditor/bin/Debug/net6.0/ref/TextEditor.dll
+/mnt/data/Documents/Projects/baltaIO/TextEditor/bin/Debug/net6.0/TextEditor.pdb
+/mnt/data/Documents/Projects/baltaIO/TextEditor/obj/Debug/net6.0/TextEditor.csproj.AssemblyReference.cache
+/mnt/data/Documents/Projects/baltaIO/TextEditor/obj/Debug/net6.0/TextEditor.GeneratedMSBuildEditorConfig.editorconfig
+/mnt/data/Documents/Projects/baltaIO/TextEditor/obj/Debug/net6.0/TextEditor.AssemblyInfoInputs.cache
+/mnt/data/Documents/Projects/baltaIO/TextEditor/obj/Debug/net6.0/TextEditor.AssemblyInfo.cs
+/mnt/data/Documents/Projects/baltaIO/TextEditor/obj/Debug/net6.0/TextEditor.csproj.CoreCompileInputs.cache
+/mnt/data/Documents/Projects/baltaIO/TextEditor/obj/Debug/net6.0/TextEditor.dll
+/mnt/data/Documents/Projects/baltaIO/TextEditor/obj/Debug/net6.0/ref/TextEditor.dll
+/mnt/data/Documents/Projects/baltaIO/TextEditor/obj/Debug/net6.0/TextEditor.pdb
+/mnt/data/Documents/Projects/baltaIO/TextEditor/obj/Debug/net6.0/TextEditor.genruntimeconfig.cache
