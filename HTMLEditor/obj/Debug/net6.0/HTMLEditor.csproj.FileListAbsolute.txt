@@ -1,0 +1,15 @@
+/mnt/data/Documents/Projects/baltaIO/HTMLEditor/bin/Debug/net6.0/HTMLEditor
+/mnt/data/Documents/Projects/baltaIO/HTMLEditor/bin/Debug/net6.0/HTMLEditor.deps.json
+/mnt/data/Documents/Projects/baltaIO/HTMLEditor/bin/Debug/net6.0/HTMLEditor.runtimeconfig.json
+/mnt/data/Documents/Projects/baltaIO/HTMLEditor/bin/Debug/net6.0/HTMLEditor.dll
+/mnt/data/Documents/Projects/baltaIO/HTMLEditor/bin/Debug/net6.0/ref/HTMLEditor.dll
+/mnt/data/Documents/Projects/baltaIO/HTMLEditor/bin/Debug/net6.0/HTMLEditor.pdb
+/mnt/data/Documents/Projects/baltaIO/HTMLEditor/obj/Debug/net6.0/HTMLEditor.csproj.AssemblyReference.cache
+/mnt/data/Documents/Projects/baltaIO/HTMLEditor/obj/Debug/net6.0/HTMLEditor.GeneratedMSBuildEditorConfig.editorconfig
+/mnt/data/Documents/Projects/baltaIO/HTMLEditor/obj/Debug/net6.0/HTMLEditor.AssemblyInfoInputs.cache
+/mnt/data/Documents/Projects/baltaIO/HTMLEditor/obj/Debug/net6.0/HTMLEditor.AssemblyInfo.cs
+/mnt/data/Documents/Projects/baltaIO/HTMLEditor/obj/Debug/net6.0/HTMLEditor.csproj.CoreCompileInputs.cache
+/mnt/data/Documents/Projects/baltaIO/HTMLEditor/obj/Debug/net6.0/HTMLEditor.dll
+/mnt/data/Documents/Projects/baltaIO/HTMLEditor/obj/Debug/net6.0/ref/HTMLEditor.dll
+/mnt/data/Documents/Projects/baltaIO/HTMLEditor/obj/Debug/net6.0/HTMLEditor.pdb
+/mnt/data/Documents/Projects/baltaIO/HTMLEditor/obj/Debug/net6.0/HTMLEditor.genruntimeconfig.cache
