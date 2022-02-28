@@ -53,13 +53,28 @@ namespace HTMLEditor
             Console.SetCursorPosition(3,11);
             Console.Write("Enter your option: ");                      
         }
-    
+
+        public static void Open()
+        {
+            Console.Clear();
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine("VIEWER MODE - Type the filename and path do View.");
+            Console.WriteLine("---------------------------------------------------");
+            string path = Console.ReadLine();
+            
+            using(var file = new StreamReader(path))
+            {
+                string text = file.ReadToEnd();
+                Viewer.Show(text);
+            }
+        }
         public static void HandleMenuOption(short option)
         {
             switch (option)
             {
-                case 1: Console.WriteLine("Editor"); break;
-                case 2: Console.WriteLine("View"); break;
+                case 1: Editor.Show(); break;
+                case 2: Open(); break;
                 case 0: {
                     Console.Clear();
                     Environment.Exit(0);
