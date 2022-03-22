@@ -4,6 +4,7 @@ using System.Security.Cryptography;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+using Microsoft.AspNetCore.Authorization;
 
 namespace JwtWebapiTutorial.Controllers;
 
@@ -13,10 +14,19 @@ public class AuthController : ControllerBase
 {
     public static User user = new User();
     private readonly IConfiguration _configuration;
+    private readonly IUserService _userService;
 
-    public AuthController(IConfiguration configuration)
+    public AuthController(IConfiguration configuration, IUserService userService)
     {
         _configuration = configuration;
+        _userService = userService;
+    }
+
+    [HttpGet, Authorize]
+    public ActionResult<string> GetUser()
+    {
+        var userName = _userService.GetName();
+        return Ok(userName);
     }
 
     [HttpPost("register")]
@@ -45,6 +55,7 @@ public class AuthController : ControllerBase
         }
 
         string token = CreatToken(user);
+
         return Ok(token);
     }
 
@@ -53,7 +64,8 @@ public class AuthController : ControllerBase
         // Create the list of Claims for the token -- basic data
         List<Claim> claims = new List<Claim>
         {
-            new Claim(ClaimTypes.Name, user.Username)
+            new Claim(ClaimTypes.Name, user.Username),
+            new Claim(ClaimTypes.Role, "Admin")
         };
 
         var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(

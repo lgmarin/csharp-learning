@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using JwtWebapiTutorial.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace JwtWebapiTutorial.Controllers;
 
 [ApiController]
 [Route("[controller]")]
+[Authorize(Roles = "Admin")]
 public class WeatherForecastController : ControllerBase
 {
     private static readonly string[] Summaries = new[]
