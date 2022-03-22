@@ -7,25 +7,23 @@ namespace ConsumeApi.Controllers;
 public class WeatherForecastController : ControllerBase
 {
     private readonly ILogger<WeatherForecastController> _logger;
-    private static HttpClient _httpClient;
+    private readonly IHttpClientFactory _httpClientFactory;
 
-    static WeatherForecastController()
-    {
-        // It is created only one time when the app runs
-        _httpClient = new HttpClient();
-    }
-
-    public WeatherForecastController(ILogger<WeatherForecastController> logger)
+    public WeatherForecastController(ILogger<WeatherForecastController> logger, IHttpClientFactory httpClientFactory)
     {
         _logger = logger;
+        _httpClientFactory = httpClientFactory;
     }
 
     [HttpGet(Name = "GetWeatherForecast")]
     public async Task<string> Get(string cityName)
     {
-        var URL = $"http://api.weatherapi.com/v1/current.json?key=254970bdba1b4fc0b4c222531222203&q={cityName}&aqi=no";
+        var URL = $"?key=254970bdba1b4fc0b4c222531222203&q={cityName}&aqi=no";
         
-        var response = await _httpClient.GetAsync(URL);
+        // Reuse connections to the external API
+        var httpClient = _httpClientFactory.CreateClient("weather");
+
+        var response = await httpClient.GetAsync(URL);
         
         return await response.Content.ReadAsStringAsync();
 
