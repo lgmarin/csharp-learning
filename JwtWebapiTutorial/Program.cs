@@ -1,6 +1,8 @@
 global using JwtWebapiTutorial.Services.UserService;
 using System.Text;
+using JwtWebapiTutorial.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
@@ -17,6 +19,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddHttpContextAccessor();
 
+//builder.Services.AddDbContext<UserContext>(opt => opt.UseInMemoryDatabase("Users"));
+builder.Services.AddDbContext<UserContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("UserContext")));
+
+// Configure Swagger
 builder.Services.AddSwaggerGen(options => {
     options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
     {

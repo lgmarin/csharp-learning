@@ -15,18 +15,13 @@ public class AuthController : ControllerBase
     public static User user = new User();
     private readonly IConfiguration _configuration;
     private readonly IUserService _userService;
+    private readonly UserContext _userContext;
 
-    public AuthController(IConfiguration configuration, IUserService userService)
+    public AuthController(IConfiguration configuration, IUserService userService, UserContext userContext)
     {
         _configuration = configuration;
         _userService = userService;
-    }
-
-    [HttpGet, Authorize]
-    public ActionResult<string> GetUser()
-    {
-        var userName = _userService.GetName();
-        return Ok(userName);
+        _userContext = userContext;
     }
 
     [HttpPost("register")]
@@ -37,7 +32,12 @@ public class AuthController : ControllerBase
         user.Username = request.Username;
         user.PasswordHash = passwordHash;
         user.PasswordSalt = passwordSalt;
+        user.Role = request.Role;
 
+        _userContext.User.Add(user);
+
+        await _userContext.SaveChangesAsync();
+        
         return Ok(user);
     }
 
@@ -54,18 +54,25 @@ public class AuthController : ControllerBase
             return BadRequest("Password Incorrect!");
         }
 
-        string token = CreatToken(user);
+        string token = CreateToken(user);
 
         return Ok(token);
     }
 
-    private string CreatToken(User user)
+    [HttpGet("get"), Authorize]
+    public ActionResult<string> GetUser()
+    {
+        var userName = _userService.GetName();
+        return Ok(userName);
+    }
+
+    private string CreateToken(User user)
     {
         // Create the list of Claims for the token -- basic data
         List<Claim> claims = new List<Claim>
         {
             new Claim(ClaimTypes.Name, user.Username),
-            new Claim(ClaimTypes.Role, "Admin")
+            new Claim(ClaimTypes.Role, user.Role)
         };
 
         var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(
