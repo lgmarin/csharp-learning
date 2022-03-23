@@ -1,4 +1,4 @@
-namespace ConsumeApi;
+namespace ConsumeApi.Models;
 
 public class WeatherForecast
 {

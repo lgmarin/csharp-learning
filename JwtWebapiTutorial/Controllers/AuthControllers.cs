@@ -66,6 +66,13 @@ public class AuthController : ControllerBase
         return Ok(userName);
     }
 
+    [HttpGet("admin-only"), Authorize(Roles = "Admin")]
+    public ActionResult<string> AdminOnly()
+    {
+        var userName = _userService.GetName();
+        return Ok(userName);
+    }
+
     private string CreateToken(User user)
     {
         // Create the list of Claims for the token -- basic data
