@@ -19,9 +19,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddHttpContextAccessor();
 
-//builder.Services.AddDbContext<UserContext>(opt => opt.UseInMemoryDatabase("Users"));
-builder.Services.AddDbContext<UserContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("UserContext")));
+builder.Services.AddDbContext<UserContext>(opt => opt.UseInMemoryDatabase("Users"));
+//builder.Services.AddDbContext<UserContext>(options =>
+//    options.UseSqlite(builder.Configuration.GetConnectionString("UserContext")));
 
 // Configure Swagger
 builder.Services.AddSwaggerGen(options => {

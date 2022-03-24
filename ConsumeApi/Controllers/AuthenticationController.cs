@@ -1,23 +1,24 @@
-using Microsoft.AspNetCore.Mvc;
-using JwtWebapiTutorial.Models;
-using System.Security.Cryptography;
-using System.Security.Claims;
-using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Security.Cryptography;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authorization;
+using ConsumeApi.Models;
 
-namespace JwtWebapiTutorial.Controllers;
+
+namespace ConsumeApi.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
-public class AuthController : ControllerBase
+[Route("auth/[controller]")]
+public class AuthenticationController : ControllerBase
 {
     public static User user = new User();
     private readonly IConfiguration _configuration;
     private readonly IUserService _userService;
     private readonly UserContext _userContext;
 
-    public AuthController(IConfiguration configuration, IUserService userService, UserContext userContext)
+    public AuthenticationController(IConfiguration configuration, IUserService userService, UserContext userContext)
     {
         _configuration = configuration;
         _userService = userService;
@@ -27,9 +28,9 @@ public class AuthController : ControllerBase
     [HttpPost("register")]
     public async Task<ActionResult<User>> Register(UserDto request)
     {
-        CreatePassowrdHash(request.Password, out byte[] passwordHash, out byte[] passwordSalt);
+        CreatePasswordHash(request.Password, out byte[] passwordHash, out byte[] passwordSalt);
 
-        user.UserID = new Guid();
+        user.ID = new Guid();
         user.Username = request.Username;
         user.PasswordHash = passwordHash;
         user.PasswordSalt = passwordSalt;
@@ -98,7 +99,7 @@ public class AuthController : ControllerBase
 
         return jwt;
     }
-    private void CreatePassowrdHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
+    private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
     {
         using(var hmac = new HMACSHA512())
         {

@@ -1,10 +1,11 @@
 using ConsumeApi.Services.WeatherService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ConsumeApi.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("[controller]"), Authorize]
 public class WeatherForecastController : ControllerBase
 {
     private readonly ILogger<WeatherForecastController> _logger;
