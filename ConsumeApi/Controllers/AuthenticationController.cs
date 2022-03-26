@@ -1,11 +1,11 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Security.Cryptography;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authorization;
 using ConsumeApi.Models;
-
+using ConsumeApi.Services.PasswordService;
+using ConsumeApi.Data;
 
 namespace ConsumeApi.Controllers;
 
@@ -17,18 +17,20 @@ public class AuthenticationController : ControllerBase
     private readonly IConfiguration _configuration;
     private readonly IUserService _userService;
     private readonly UserContext _userContext;
+    private readonly IPasswordService _passwordService;
 
-    public AuthenticationController(IConfiguration configuration, IUserService userService, UserContext userContext)
+    public AuthenticationController(IConfiguration configuration, IUserService userService, UserContext userContext, IPasswordService passwordService)
     {
         _configuration = configuration;
         _userService = userService;
         _userContext = userContext;
+        _passwordService = passwordService;
     }
 
     [HttpPost("register")]
     public async Task<ActionResult<User>> Register(UserDto request)
     {
-        CreatePasswordHash(request.Password, out byte[] passwordHash, out byte[] passwordSalt);
+        _passwordService.CreatePasswordHash(request.Password, out byte[] passwordHash, out byte[] passwordSalt);
 
         user.ID = new Guid();
         user.Username = request.Username;
@@ -51,7 +53,7 @@ public class AuthenticationController : ControllerBase
             return BadRequest("User not found!");
         }
 
-        if (!VerifyPasswordHash(request.Password, user.PasswordHash, user.PasswordSalt))
+        if (!_passwordService.VerifyPasswordHash(request.Password, user.PasswordHash, user.PasswordSalt))
         {
             return BadRequest("Password Incorrect!");
         }
@@ -99,23 +101,5 @@ public class AuthenticationController : ControllerBase
 
         return jwt;
     }
-    private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
-    {
-        using(var hmac = new HMACSHA512())
-        {
-            passwordSalt = hmac.Key;
-            passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
-        }
-    }
 
-    private bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
-    {
-        using(var hmac = new HMACSHA512(user.PasswordSalt))
-        {
-            var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
-
-            // byte by byte check through SequenceEqual
-            return computedHash.SequenceEqual(passwordHash);
-        }
-    }
 }

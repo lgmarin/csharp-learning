@@ -1,6 +1,7 @@
+using ConsumeApi.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace ConsumeApi.Models;
+namespace ConsumeApi.Data;
 
 public class UserContext : DbContext
 {

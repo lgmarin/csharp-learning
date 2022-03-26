@@ -1,6 +1,6 @@
 global using ConsumeApi.Services.UserService;
 using System.Text;
-using ConsumeApi.Models;
+using ConsumeApi.Data;
 using ConsumeApi.Services.WeatherService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
