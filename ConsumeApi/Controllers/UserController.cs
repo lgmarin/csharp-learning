@@ -1,4 +1,5 @@
 using ConsumeApi.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ConsumeApi.Controllers;
@@ -8,14 +9,26 @@ public class UserController : ControllerBase
 {
     private readonly IUserService _userService;
 
+
     public UserController(IUserService userService)
     {
         _userService = userService;
     }
 
-    [Route("user/{id}"), HttpGet]
-    public  async Task<ActionResult<UserDto>> GetById(Guid userId)
+    [Route("user/{userId}"), HttpGet]
+    [Authorize]
+    public  async Task<ActionResult<UserViewDto>> GetById(Guid userId)
     {
+        if (userId == null)
+        {
+            return BadRequest();
+        }
+
+        if (_userService.GetId() != userId.ToString() || !_userService.IsAdmin())
+        {
+           return Unauthorized("You are not the owner of this account and you are not an Administrator!"); 
+        }
+
         var user = await _userService.GetById(userId);
 
         if (user == null)
@@ -27,37 +40,59 @@ public class UserController : ControllerBase
     }
 
     [Route("user"), HttpGet]
-    public  async Task<ActionResult<List<UserDto>>> GetAll()
+    public  async Task<ActionResult<IEnumerable<UserViewDto>>> GetAll()
     {
-        var user = await _userService.GetAll();
+        var users = _userService.GetAll();
 
-        if (user == null)
+        if (users == null)
         {
             return NotFound();
         }
 
-        return Ok(user);
+        return Ok(users);
     }
 
-    [Route("user/update/{id}"), HttpPut]
-    public  async Task<ActionResult<UserDto>> Update(Guid userId)
+    [Route("user/update/{userId}"), HttpPut]
+    [Authorize]
+    public  async Task<ActionResult<UserViewDto>> Update(Guid userId, UserDto userDto)
     {
-        var user = await _userService.GetAll();
+        if (userDto == null)
+        {
+            return BadRequest();
+        }
+        
+        if (_userService.GetId() != userId.ToString())
+        {
+           return Unauthorized("You are not the owner of this account!"); 
+        }        
 
-        if (user == null)
+        var updateduser = await _userService.Update(userId, userDto);
+
+        if (updateduser == null)
         {
             return NotFound();
         }
 
-        return Ok(user);
+        return Ok(updateduser);
     }
 
-    [Route("user/{id}"), HttpDelete]
+    [Route("user/{userId}"), HttpDelete]
+    [Authorize]
     public  async Task<ActionResult<int>> Remove(Guid userId)
     {
-        var user = await _userService.GetAll();
+        if (userId == null)
+        {
+            return BadRequest();
+        }
 
-        if (user == null)
+        if (_userService.GetId() != userId.ToString())
+        {
+           return Unauthorized("You are not the owner of this account!"); 
+        }        
+        
+        var user = await _userService.Remove(userId);
+
+        if (user == 0)
         {
             return NotFound();
         }
@@ -66,16 +101,16 @@ public class UserController : ControllerBase
     }
 
     [Route("user/add"), HttpPost]
-    public  async Task<ActionResult<UserDto>> Insert(Guid userId)
+    public  async Task<ActionResult<UserViewDto>> Insert(UserDto user)
     {
-        var user = await _userService.GetAll();
+        var newuser = await _userService.Insert(user);        
 
         if (user == null)
         {
             return NotFound();
         }
 
-        return Ok(user);
+        return Ok(newuser);
     }
 
 }

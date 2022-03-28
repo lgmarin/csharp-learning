@@ -1,4 +1,5 @@
 global using ConsumeApi.Services.UserService;
+global using ConsumeApi.Services.PasswordService;
 using System.Text;
 using ConsumeApi.Data;
 using ConsumeApi.Services.WeatherService;
@@ -18,6 +19,7 @@ builder.Services.AddEndpointsApiExplorer();
 
 // Dependency Injection
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IPasswordService, PasswordService>();
 builder.Services.AddHttpContextAccessor();
 
 // Database Configuration

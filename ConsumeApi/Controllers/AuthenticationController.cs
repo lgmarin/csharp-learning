@@ -63,26 +63,12 @@ public class AuthenticationController : ControllerBase
         return Ok(token);
     }
 
-    [HttpGet("get"), Authorize]
-    public ActionResult<string> GetUser()
-    {
-        var userName = _userService.GetName();
-        return Ok(userName);
-    }
-
-    [HttpGet("admin-only"), Authorize(Roles = "Admin")]
-    public ActionResult<string> AdminOnly()
-    {
-        var userName = _userService.GetName();
-        return Ok(userName);
-    }
-
     private string CreateToken(User user)
     {
         // Create the list of Claims for the token -- basic data
         List<Claim> claims = new List<Claim>
         {
-            new Claim(ClaimTypes.Name, user.Username),
+            new Claim(ClaimTypes.Name, user.ID.ToString()),
             new Claim(ClaimTypes.Role, user.Role)
         };
 
